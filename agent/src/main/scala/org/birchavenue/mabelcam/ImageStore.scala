@@ -9,20 +9,18 @@ import com.amazonaws.services.s3.AmazonS3Client
 import com.amazonaws.services.s3.model.PutObjectRequest
 import com.amazonaws.auth.BasicAWSCredentials
 import java.io.InputStream
+import com.amazonaws.services.s3.model.ObjectMetadata
 
 
 object ImageStore {
   
-  
-  
    private val s3client = new AmazonS3Client(new BasicAWSCredentials(MyAppConfig.AWSConfig.key, 
                                                                      MyAppConfig.AWSConfig.secret))
-   
+   private val metaData = new ObjectMetadata
+   metaData.setContentType("image/jpeg")
    
    def writeImage(stream: InputStream, filename: String) = {
-     
-     s3client.putObject(MyAppConfig.AWSConfig.bucket, filename, stream, null)
+     s3client.putObject(MyAppConfig.AWSConfig.bucket, filename, stream, metaData)
    }
-   
    
 }

@@ -6,15 +6,18 @@ object App {
 
   def main(args: Array[String]): Unit = {
     
-  println("Mabelcam")
+    println("Mabelcam")
   
-  val camConfig = MyAppConfig.CamConfig
-  
-  val cam1 = new Camera(camConfig.name, camConfig.url, camConfig.path,
+    val camConfig = MyAppConfig.CamConfig
+    val cam1 = new Camera(camConfig.name, camConfig.url, camConfig.path,
                         camConfig.username, camConfig.password)
-  
-  ImageStore.writeImage(cam1.getImage, "mabel.jpg")
-    
+
+    while(true) {
+      
+      ImageStore.writeImage(cam1.getImage, "cam1.jpg")
+      Thread.sleep(10000)
+    }
+     
   }
 
 }

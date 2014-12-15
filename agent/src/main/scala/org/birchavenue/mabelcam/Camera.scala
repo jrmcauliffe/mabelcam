@@ -10,8 +10,7 @@ class Camera(name: String, url: String, path: String, username: String, password
   def getImage(): InputStream = {
     val svc = dispatch.url(url+path).as(username, password)
     val img = Http(svc OK as.Bytes)
-    val ret = new ByteArrayInputStream(img().toArray)
-    Http.shutdown()
+    val	ret = new ByteArrayInputStream(img().toArray)
     ret
   }
   
