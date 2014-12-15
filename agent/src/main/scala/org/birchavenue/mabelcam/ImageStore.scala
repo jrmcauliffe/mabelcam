@@ -6,8 +6,10 @@ import com.amazonaws.AmazonServiceException
 import com.amazonaws.auth.profile.ProfileCredentialsProvider
 import com.amazonaws.services.s3.AmazonS3
 import com.amazonaws.services.s3.AmazonS3Client
-import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.amazonaws.services.s3.model.PutObjectRequest
 import com.amazonaws.auth.BasicAWSCredentials
+import java.io.InputStream
+
 
 object ImageStore {
   
@@ -17,9 +19,9 @@ object ImageStore {
                                                                      MyAppConfig.AWSConfig.secret))
    
    
-   def test(): String = {
+   def writeImage(stream: InputStream, filename: String) = {
      
-     "X"
+     s3client.putObject(MyAppConfig.AWSConfig.bucket, filename, stream, null)
    }
    
    
