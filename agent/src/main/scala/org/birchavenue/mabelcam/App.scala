@@ -9,7 +9,7 @@ object App {
     println("Mabelcam")
   
     val camConfig = MyAppConfig.CamConfig
-    val cam1 = new Camera(camConfig.name, camConfig.url, camConfig.path,
+    val cam1 = new Camera(camConfig.name, camConfig.url, camConfig.port, camConfig.path,
                         camConfig.username, camConfig.password)
 
     while(true) {

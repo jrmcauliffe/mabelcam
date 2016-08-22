@@ -18,6 +18,7 @@ object MyAppConfig {
  
     lazy val name = camConfig.getString("name")
     lazy val url = camConfig.getString("url")
+    lazy val port = camConfig.getInt("port")
     lazy val path = camConfig.getString("path")
     lazy val username = camConfig.getString("username")
     lazy val password = camConfig.getString("password")
