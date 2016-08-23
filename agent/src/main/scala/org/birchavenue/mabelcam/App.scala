@@ -1,6 +1,6 @@
 package org.birchavenue.mabelcam
 
-
+import org.joda.time.LocalDateTime
 
 object App {
 
@@ -14,7 +14,7 @@ object App {
 
     while(true) {
       
-      ImageStore.writeImage(cam1.getImage, "cam1.jpg")
+      LocalImageStore.writeImage(cam1.getImage(), "cam1 - " + (new LocalDateTime()).toString() + ".jpg")
       Thread.sleep(10000)
     }
      

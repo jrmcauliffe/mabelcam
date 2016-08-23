@@ -9,6 +9,7 @@ import com.amazonaws.services.s3.AmazonS3Client
 import com.amazonaws.services.s3.model.PutObjectRequest
 import com.amazonaws.auth.BasicAWSCredentials
 import java.io.{BufferedOutputStream, FileOutputStream, InputStream}
+import java.nio.file.{Files, Paths}
 
 import com.amazonaws.services.s3.model.ObjectMetadata
 
@@ -26,9 +27,10 @@ object ImageStore {
    
 }
 
-//object LocalImageStore{
-//
-//  def writeImage(stream: InputStream, filename: String) = {
-//    val x = scala.io.Source.fromInputStream(InputStream)
-//  }
-//}
+object LocalImageStore{
+  def writeImage(stream: InputStream, filename: String) = {
+
+    Files.copy(stream, Paths.get(filename))
+
+  }
+}
