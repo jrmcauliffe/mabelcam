@@ -13,8 +13,8 @@ object App {
                         camConfig.username, camConfig.password)
 
     while(true) {
-      
-      LocalImageStore.writeImage(cam1.getImage(), "cam1 - " + (new LocalDateTime()).toString() + ".jpg")
+
+      cam1.getImage().foreach(i => LocalImageStore.writeImage(i, "cam1 - " + (new LocalDateTime()).toString() + ".jpg"))
       Thread.sleep(10000)
     }
      
