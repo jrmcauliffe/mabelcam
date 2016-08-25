@@ -1,6 +1,6 @@
 name := "mabelcam"
 
-version := "0.0.3"
+version := "0.0.4"
 
 scalaVersion := "2.11.8"
 
@@ -11,6 +11,7 @@ Seq(
   "org.apache.sanselan"     %  "sanselan"        % "0.97-incubator",
   "joda-time"               % "joda-time"        % "2.9.4",
   "org.joda"                % "joda-convert"     % "1.8",
+  "ch.qos.logback"          % "logback-classic"  % "1.0.13",
   "net.databinder.dispatch" %% "dispatch-core"   % "0.11.2",
   "org.clapper"             %% "grizzled-slf4j"  % "1.0.4",
   "org.scalactic"           %% "scalactic"       % "3.0.0",
