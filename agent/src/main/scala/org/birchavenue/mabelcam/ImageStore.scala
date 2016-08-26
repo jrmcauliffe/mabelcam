@@ -9,14 +9,14 @@ import java.nio.file.{Files, Paths}
 
 object ImageStore extends Logging {
   
-   private val s3client = new AmazonS3Client(new BasicAWSCredentials(MyAppConfig.AWSConfig.key, 
-                                                                     MyAppConfig.AWSConfig.secret))
+   private val s3client = new AmazonS3Client(new BasicAWSCredentials(MyAppConfig.awsConfig.key,
+                                                                     MyAppConfig.awsConfig.secret))
    private val metaData = new ObjectMetadata
    metaData.setContentType("image/jpeg")
    
    def writeImage(stream: InputStream, filename: String) = {
      info("Writing " + filename + " to S3")
-     s3client.putObject(MyAppConfig.AWSConfig.bucket, filename, stream, metaData)
+     s3client.putObject(MyAppConfig.awsConfig.bucket, filename, stream, metaData)
    }
 }
 

@@ -5,7 +5,7 @@ import java.io.ByteArrayInputStream
 import dispatch._
 import Defaults._
 
-class Camera(name: String, url: String, port: Int, path: String, username: String, password: String) {
+case class Camera(name: String, url: String, port: Int, path: String, username: String, password: String) {
 
   def getImage(): Option[InputStream] = {
     val svc = dispatch.url(url + ":" + port.toString + path).as(username, password)
