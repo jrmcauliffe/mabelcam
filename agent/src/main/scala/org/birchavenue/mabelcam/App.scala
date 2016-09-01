@@ -13,8 +13,11 @@ object App extends Logging {
     val fmt = DateTimeFormat.forPattern(MyAppConfig.dateTimeFormat)
 
     while(true) {
-      MyAppConfig.cameras.foreach(cam => cam.getImage().foreach(i =>
-                           LocalImageStore.writeImage(i, cam.name + " - " + fmt.print(new LocalDateTime()) + ".jpg")))
+      MyAppConfig.cameras.foreach(cam => cam.getImage().foreach(i => {
+                           val filename = cam.name + "-" + fmt.print(new LocalDateTime()) + ".jpg"
+                           LocalImageStore.writeImage(i, filename)
+                           ImageStore.writeImage(i, filename)
+      }))
       Thread.sleep(10000)
     }
   }
