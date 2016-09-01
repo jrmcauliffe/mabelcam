@@ -9,4 +9,5 @@ object MyAppConfig extends AllValueReaderInstances {
 
   val awsConfig = config.as[AWSConfig]("aws")
   val cameras = config.as[List[Camera]]("cameras")
+  val dateTimeFormat = config.as[String]("dateTimeFormat")
 }
